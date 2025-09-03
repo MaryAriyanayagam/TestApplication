@@ -1,0 +1,7 @@
+﻿1. Generalize the methods of both Cat and Dog classes
+   to make it possible for using an object of either class
+   without directly referring to the specific class definition.
+
+2. Make the code suitable for Unit-testing.
+
+3. Implement Unit-tests for the existing methods of both classes.
