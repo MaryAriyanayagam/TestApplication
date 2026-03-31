@@ -11,7 +11,7 @@ export const loadMealPlans = () => {
     if (stored) return JSON.parse(stored);
     saveMealPlans(sampleMealPlans);
     return sampleMealPlans;
-  } catch { return sampleMealPlans; }
+  } catch (err) { console.error('Failed to load meal plans:', err); return sampleMealPlans; }
 };
 
 export const saveMealPlans = (plans) => {

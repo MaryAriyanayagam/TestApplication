@@ -9,7 +9,7 @@ export const loadRecipes = () => {
     if (stored) return JSON.parse(stored);
     saveRecipes(sampleRecipes);
     return sampleRecipes;
-  } catch { return sampleRecipes; }
+  } catch (err) { console.error('Failed to load recipes:', err); return sampleRecipes; }
 };
 
 export const saveRecipes = (recipes) => {

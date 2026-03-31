@@ -11,7 +11,7 @@ export const loadPantryItems = () => {
     if (stored) return JSON.parse(stored);
     savePantryItems(samplePantryItems);
     return samplePantryItems;
-  } catch { return samplePantryItems; }
+  } catch (err) { console.error('Failed to load pantry items:', err); return samplePantryItems; }
 };
 
 export const savePantryItems = (items) => {
@@ -22,7 +22,7 @@ export const loadTransactions = () => {
   try {
     const stored = localStorage.getItem(TRANSACTIONS_KEY);
     return stored ? JSON.parse(stored) : [];
-  } catch { return []; }
+  } catch (err) { console.error('Failed to load transactions:', err); return []; }
 };
 
 export const saveTransactions = (transactions) => {

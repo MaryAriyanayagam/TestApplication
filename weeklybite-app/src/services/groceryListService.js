@@ -6,7 +6,7 @@ export const loadGroceryList = () => {
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
     return stored ? JSON.parse(stored) : null;
-  } catch { return null; }
+  } catch (err) { console.error('Failed to load grocery list:', err); return null; }
 };
 
 export const saveGroceryList = (list) => {
