@@ -8,4 +8,4 @@ export const LOCATIONS = ['Fridge', 'Freezer', 'Pantry', 'Cupboard'];
 
 export const RECIPE_CATEGORIES = ['Breakfast', 'Lunch', 'Dinner', 'Snack', 'Dessert', 'Soup', 'Salad', 'Baked', 'Vegetarian', 'Vegan', 'Other'];
 
-export const generateId = () => `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+export const generateId = () => `${Date.now()}-${Math.random().toString(36).slice(2, 11)}`;

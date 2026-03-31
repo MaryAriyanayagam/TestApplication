@@ -200,7 +200,10 @@ export default function Pantry() {
           filtered.map(item => {
             const isLow = item.minimumStockLevel > 0 && item.quantityOnHand <= item.minimumStockLevel;
             const isExp = !item.expirationDate ? false : (daysUntilExpiry(item.expirationDate) ?? 1) < 0;
-            const isExpSoon = !item.expirationDate ? false : (() => { const d = daysUntilExpiry(item.expirationDate); return d !== null && d >= 0 && d <= 3; })();
+            const isExpSoon = !item.expirationDate ? false : (() => {
+              const d = daysUntilExpiry(item.expirationDate);
+              return d !== null && d >= 0 && d <= 3;
+            })();
             return (
               <div key={item.id} className={`bg-white rounded-xl border shadow-sm p-3 cursor-pointer ${
                 isExp ? 'border-red-200' : isExpSoon ? 'border-yellow-200' : isLow ? 'border-orange-200' : 'border-gray-100'
