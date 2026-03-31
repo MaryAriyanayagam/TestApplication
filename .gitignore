@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# WeeklyBite React App
+weeklybite-app/node_modules/
+weeklybite-app/build/
