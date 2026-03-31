@@ -8,7 +8,7 @@ export default function Recipes() {
   const { recipes, recipeActions } = useApp();
   const [search, setSearch] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('All');
-  const [showFavoritesOnly] = useState(false);
+  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
   const [showAddModal, setShowAddModal] = useState(false);
   const [showDetailModal, setShowDetailModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
@@ -147,10 +147,18 @@ export default function Recipes() {
       <div className="sticky top-0 bg-white border-b z-30 px-4 py-3">
         <div className="flex items-center justify-between mb-3">
           <h1 className="text-xl font-bold text-gray-800">Recipes</h1>
-          <button onClick={() => { setForm(defaultForm()); setShowAddModal(true); }}
-            className="flex items-center gap-1.5 bg-green-500 text-white px-3 py-2 rounded-xl text-sm font-medium">
-            <Plus size={16} />Add
-          </button>
+          <div className="flex items-center gap-2">
+            <button onClick={() => setShowFavoritesOnly(f => !f)}
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-medium border transition-colors ${
+                showFavoritesOnly ? 'bg-red-50 border-red-200 text-red-500' : 'border-gray-200 text-gray-600'
+              }`}>
+              <Heart size={15} className={showFavoritesOnly ? 'fill-red-400' : ''} />
+            </button>
+            <button onClick={() => { setForm(defaultForm()); setShowAddModal(true); }}
+              className="flex items-center gap-1.5 bg-green-500 text-white px-3 py-2 rounded-xl text-sm font-medium">
+              <Plus size={16} />Add
+            </button>
+          </div>
         </div>
         <div className="relative mb-3">
           <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />

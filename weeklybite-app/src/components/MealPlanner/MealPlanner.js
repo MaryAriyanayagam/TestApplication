@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Plus, Trash2, CheckCircle, AlertCircle } from 'lucide-react';
 import { useApp } from '../../contexts/AppContext';
 import { getWeekDays, formatDate, formatDisplayDate, formatFullDate, getMonday } from '../../utils/dateUtils';
+import { parseISO } from 'date-fns';
 import { MEAL_TYPES } from '../../utils/unitConverter';
 import { canPrepareMeal, getMissingIngredients } from '../../services/mealPlanService';
 import Modal from '../common/Modal';
@@ -144,7 +145,7 @@ export default function MealPlanner() {
         <div className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Date</label>
-            <p className="text-sm text-gray-600">{selectedDate ? formatFullDate(new Date(selectedDate + 'T12:00:00')) : ''}</p>
+            <p className="text-sm text-gray-600">{selectedDate ? formatFullDate(parseISO(selectedDate)) : ''}</p>
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Recipe</label>

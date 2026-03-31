@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ShoppingCart, Plus, Trash2, CheckCircle, Circle, RefreshCw, Package, AlertTriangle } from 'lucide-react';
 import { useApp } from '../../contexts/AppContext';
 import { getMonday, formatFullDate } from '../../utils/dateUtils';
+import { parseISO } from 'date-fns';
 import { getLowStockItems } from '../../services/pantryService';
 import { UNITS, CATEGORIES } from '../../utils/unitConverter';
 import Modal from '../common/Modal';
@@ -64,7 +65,7 @@ export default function ShoppingList() {
           </div>
         </div>
         {groceryList && (
-          <p className="text-xs text-gray-500">Week of {formatFullDate(new Date(groceryList.weekStartDate + 'T12:00:00'))} · {purchasedCount}/{totalCount} items</p>
+          <p className="text-xs text-gray-500">Week of {formatFullDate(parseISO(groceryList.weekStartDate))} · {purchasedCount}/{totalCount} items</p>
         )}
       </div>
 

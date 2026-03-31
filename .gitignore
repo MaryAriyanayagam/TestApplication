@@ -360,5 +360,8 @@ MigrationBackup/
 .ionide/
 
 # Fody - auto-generated XML schema
-FodyWeavers.xsdweeklybite-app/node_modules/
+FodyWeavers.xsd
+
+# WeeklyBite React App
+weeklybite-app/node_modules/
 weeklybite-app/build/
